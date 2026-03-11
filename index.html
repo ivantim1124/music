@@ -199,6 +199,18 @@
       backdrop-filter: blur(8px);
     }
 
+    .btn-theater {
+      margin-top: 0.9rem;
+      color: #0a1a2f;
+      background: linear-gradient(140deg, #9be8ff, #d9c4ff);
+      box-shadow: 0 10px 24px rgba(123, 177, 255, 0.32);
+    }
+
+    .btn-theater:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(122, 180, 255, 0.4);
+    }
+
     .local-warning {
       margin-top: 0.9rem;
       font-size: 0.88rem;
@@ -347,6 +359,102 @@
       animation: slidePulse 0.7s ease;
     }
 
+    .cinema-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.32s ease;
+    }
+
+    .cinema-overlay.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .curtain {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      z-index: 2;
+      background:
+        radial-gradient(circle at center, rgba(70, 24, 120, 0.5), rgba(6, 8, 20, 0.98) 65%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(120, 40, 160, 0.4),
+          rgba(120, 40, 160, 0.4) 14px,
+          rgba(40, 13, 70, 0.6) 14px,
+          rgba(40, 13, 70, 0.6) 28px
+        );
+      transition: transform 0.56s cubic-bezier(0.77, 0, 0.18, 1);
+      will-change: transform;
+    }
+
+    .curtain-top {
+      top: 0;
+      transform: translateY(-102%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .curtain-bottom {
+      bottom: 0;
+      transform: translateY(102%);
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .cinema-overlay.is-curtain-closed .curtain-top,
+    .cinema-overlay.is-curtain-closed .curtain-bottom {
+      transform: translateY(0);
+    }
+
+    .cinema-stage {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transform: scale(1.06);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+      z-index: 1;
+    }
+
+    .cinema-overlay.is-stage-live .cinema-stage {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #cinema-player {
+      width: min(100vw, 177.78vh);
+      aspect-ratio: 16 / 9;
+      max-height: 100vh;
+      background: #000;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.68);
+    }
+
+    #cinema-player iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .cinema-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 3;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(6, 9, 25, 0.58);
+      color: #f2f5ff;
+      padding: 0.45rem 0.82rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      cursor: pointer;
+    }
+
     @keyframes glowFloat {
       0%,
       100% { transform: translateY(0) scale(1); }
@@ -379,6 +487,10 @@
       .slide-nav {
         right: 0.6rem;
       }
+
+      .btn-theater {
+        width: 100%;
+      }
     }
 
     @media (max-width: 620px) {
@@ -393,6 +505,11 @@
 
       .btn {
         font-size: 0.86rem;
+      }
+
+      .cinema-close {
+        top: 0.75rem;
+        right: 0.75rem;
       }
     }
 
@@ -443,7 +560,7 @@
     </section>
 
     <section class="slide wrap" id="slide-2">
-      <article class="song-card reveal">
+      <article class="song-card reveal" data-video-id="IC2DDUQmG5I">
         <div class="song-media">
           <iframe
             class="embed"
@@ -465,16 +582,17 @@
             透過重新演繹經典兒歌《小星星》，Peder Elias 用童謠的熟悉感，對照成人世界的心碎情緒。
             這首歌將「天真旋律」與「成熟傷感」放在同一框架，讓痛感被更溫柔地表達，也更容易被聽眾接住。
           </p>
+          <button type="button" class="btn btn-theater" data-play-cinema="IC2DDUQmG5I">劇場模式全螢幕播放</button>
         </div>
       </article>
     </section>
 
     <section class="slide wrap" id="slide-3">
-      <article class="song-card reveal">
+      <article class="song-card reveal" data-video-id="R5eejP-u6dI">
         <div class="song-media">
           <iframe
             class="embed"
-            src="https://www.youtube.com/embed?listType=search&list=Peder%20Elias%20Loving%20You%20Girl"
+            src="https://www.youtube-nocookie.com/embed/R5eejP-u6dI?rel=0&modestbranding=1&playsinline=1"
             title="Peder Elias - Loving You Girl"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="origin"
@@ -492,12 +610,13 @@
             這首歌以溫柔嗓音描寫愛慕與靠近對方的心情，延續他在《Bonfire》等作品裡對感情主題的探索。
             從愛情、心碎到自我發現，Peder Elias 一直維持「真誠、可共鳴」的創作方向，讓歌曲同時浪漫也有安定感。
           </p>
+          <button type="button" class="btn btn-theater" data-play-cinema="R5eejP-u6dI">劇場模式全螢幕播放</button>
         </div>
       </article>
     </section>
 
     <section class="slide wrap" id="slide-4">
-      <article class="song-card reveal">
+      <article class="song-card reveal" data-video-id="YbqZsvWC2lU">
         <div class="song-media">
           <iframe
             class="embed"
@@ -519,6 +638,7 @@
             「紙飛機」象徵把思念與情感寄託出去，希望它能平安飛到心愛的人身邊。歌曲描寫在距離、
             不安全感與渴望連結之間的拉扯，以簡單而純粹的意象傳遞慰藉感，是他情感敘事能力的代表作之一。
           </p>
+          <button type="button" class="btn btn-theater" data-play-cinema="YbqZsvWC2lU">劇場模式全螢幕播放</button>
         </div>
       </article>
     </section>
@@ -544,12 +664,124 @@
     <button class="dot" data-target="slide-5" aria-label="第 6 張"></button>
   </aside>
 
+  <div class="cinema-overlay" id="cinema-overlay" aria-hidden="true">
+    <div class="curtain curtain-top" aria-hidden="true"></div>
+    <div class="curtain curtain-bottom" aria-hidden="true"></div>
+    <div class="cinema-stage">
+      <button type="button" class="cinema-close" id="cinema-close">關閉劇場模式</button>
+      <div id="cinema-player"></div>
+    </div>
+  </div>
   <script>
     const deck = document.getElementById('deck');
     const slides = Array.from(document.querySelectorAll('.slide'));
     const reveals = document.querySelectorAll('.reveal');
     const dots = Array.from(document.querySelectorAll('.dot'));
     const startBtn = document.getElementById('start-btn');
+
+    const cinemaOverlay = document.getElementById('cinema-overlay');
+    const cinemaCloseBtn = document.getElementById('cinema-close');
+    const theaterButtons = document.querySelectorAll('[data-play-cinema]');
+    const theaterHost = document.getElementById('cinema-player');
+
+    const autoCinemaMap = {
+      'slide-2': 'IC2DDUQmG5I',
+      'slide-3': 'R5eejP-u6dI',
+      'slide-4': 'YbqZsvWC2lU'
+    };
+    const autoTriggeredSlides = new Set();
+
+    let ytReadyPromise = null;
+    let cinemaPlayer = null;
+    let isCinemaClosing = false;
+
+    const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+    const ensureYouTubeApi = () => {
+      if (window.YT && window.YT.Player) {
+        return Promise.resolve();
+      }
+      if (ytReadyPromise) {
+        return ytReadyPromise;
+      }
+
+      ytReadyPromise = new Promise((resolve) => {
+        const previous = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = () => {
+          if (typeof previous === 'function') previous();
+          resolve();
+        };
+
+        const script = document.createElement('script');
+        script.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(script);
+      });
+
+      return ytReadyPromise;
+    };
+
+    const ensureCinemaPlayer = async (videoId) => {
+      await ensureYouTubeApi();
+
+      if (!cinemaPlayer) {
+        cinemaPlayer = new YT.Player(theaterHost, {
+          videoId,
+          playerVars: {
+            autoplay: 1,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            origin: window.location.origin || undefined
+          },
+          events: {
+            onStateChange: (event) => {
+              if (event.data === YT.PlayerState.ENDED) {
+                closeCinema();
+              }
+            }
+          }
+        });
+        return;
+      }
+
+      cinemaPlayer.loadVideoById(videoId);
+    };
+
+    const openCinema = async (videoId) => {
+      if (!videoId || cinemaOverlay.classList.contains('is-visible')) return;
+
+      cinemaOverlay.setAttribute('aria-hidden', 'false');
+      cinemaOverlay.classList.add('is-visible', 'is-curtain-closed');
+      document.body.style.overflow = 'hidden';
+
+      await wait(560);
+      await ensureCinemaPlayer(videoId);
+      cinemaOverlay.classList.remove('is-curtain-closed');
+      cinemaOverlay.classList.add('is-stage-live');
+
+      if (cinemaPlayer && typeof cinemaPlayer.playVideo === 'function') {
+        cinemaPlayer.playVideo();
+      }
+    };
+
+    const closeCinema = async () => {
+      if (!cinemaOverlay.classList.contains('is-visible') || isCinemaClosing) return;
+      isCinemaClosing = true;
+
+      cinemaOverlay.classList.remove('is-stage-live');
+      cinemaOverlay.classList.add('is-curtain-closed');
+
+      await wait(520);
+
+      if (cinemaPlayer && typeof cinemaPlayer.stopVideo === 'function') {
+        cinemaPlayer.stopVideo();
+      }
+
+      cinemaOverlay.classList.remove('is-curtain-closed', 'is-visible');
+      cinemaOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      isCinemaClosing = false;
+    };
 
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -574,6 +806,15 @@
           dots.forEach((dot) => {
             dot.classList.toggle('active', dot.dataset.target === currentId);
           });
+
+          const autoVideoId = autoCinemaMap[currentId];
+          if (autoVideoId && !autoTriggeredSlides.has(currentId) && !cinemaOverlay.classList.contains('is-visible')) {
+            window.setTimeout(() => {
+              if (!entry.target.classList.contains('is-active')) return;
+              autoTriggeredSlides.add(currentId);
+              openCinema(autoVideoId);
+            }, 260);
+          }
         });
       },
       { root: deck, threshold: 0.55 }
@@ -607,9 +848,11 @@
       }
     };
 
-    startBtn.addEventListener('click', () => {
-      moveSlide(1);
-    });
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        moveSlide(1);
+      });
+    }
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowDown' || event.key === 'PageDown') {
@@ -619,6 +862,9 @@
       if (event.key === 'ArrowUp' || event.key === 'PageUp') {
         event.preventDefault();
         moveSlide(-1);
+      }
+      if (event.key === 'Escape') {
+        closeCinema();
       }
     });
 
@@ -642,6 +888,19 @@
       });
     });
 
+    theaterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        openCinema(button.dataset.playCinema);
+      });
+    });
+
+    cinemaCloseBtn.addEventListener('click', closeCinema);
+    cinemaOverlay.addEventListener('click', (event) => {
+      if (event.target === cinemaOverlay || event.target.classList.contains('curtain')) {
+        closeCinema();
+      }
+    });
+
     if (window.location.protocol === 'file:') {
       const warning = document.getElementById('local-warning');
       if (warning) warning.style.display = 'block';
@@ -649,3 +908,4 @@
   </script>
 </body>
 </html>
+
