@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-Hant-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>音樂報告｜投影片式沉浸體驗</title>
+  <title>Peder Elias 音樂報告｜投影片式沉浸體驗</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -149,6 +149,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      text-transform: lowercase;
     }
 
     .hero-sub {
@@ -303,25 +304,6 @@
       font-size: 0.97rem;
     }
 
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 0.6rem;
-    }
-
-    .summary-card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.65rem;
-      margin-bottom: 0.45rem;
-      color: #f5efff;
-    }
-
-    .summary-card p {
-      color: var(--text-soft);
-      line-height: 1.84;
-    }
-
     .slide-nav {
       position: fixed;
       right: 1rem;
@@ -394,10 +376,6 @@
         grid-template-columns: 1fr;
       }
 
-      .summary-grid {
-        grid-template-columns: 1fr;
-      }
-
       .slide-nav {
         right: 0.6rem;
       }
@@ -437,15 +415,15 @@
     <section class="slide hero" id="slide-0">
       <div class="hero-aura" aria-hidden="true"></div>
       <div class="hero-content reveal is-visible">
-        <p class="eyebrow">Music Report Experience</p>
-        <h1>三種音樂風格<br />同場綻放</h1>
+        <p class="eyebrow">Artist Introduction</p>
+        <h1>peder elias</h1>
         <p class="hero-sub">
-          以深紫藍氛圍為主軸，搭配光暈、視差與投影片式轉場，
-          讓每首作品都像一張獨立簡報頁，被清楚而有節奏地呈現。
+          以溫柔嗓音與誠實歌詞聞名的挪威創作歌手。這份報告將從生平、作品與主題脈絡，
+          帶你認識他如何把愛情、心碎與自我探索轉化為能安慰人心的音樂。
         </p>
         <div class="hero-actions">
           <button type="button" class="btn btn-start" id="start-btn">開始簡報</button>
-          <a class="btn btn-secondary" href="#slide-5">跳到總結</a>
+          <a class="btn btn-secondary" href="#slide-5">跳到心得</a>
         </div>
         <p class="local-warning" id="local-warning">
           目前為本機檔案模式，YouTube 可能出現錯誤 153；部署到 GitHub Pages 後即可正常內嵌播放。
@@ -455,10 +433,11 @@
 
     <section class="slide wrap intro" id="slide-1">
       <div class="panel reveal">
-        <h2>簡報導讀</h2>
+        <h2>生平介紹</h2>
         <p>
-          這份報告將三種代表性音樂風格拆成投影片章節：浪漫鄉村流行、熱帶浩室舞曲、夢幻獨立流行。
-          每張投影片皆含可直接播放的 YouTube 影片、風格標籤與分析文字，便於展示與口頭報告同步進行。
+          Peder Elias（1997 年 1 月 14 日生）來自挪威特隆赫姆，是流行創作歌手。
+          他的作品以細膩、溫柔且容易共鳴的情感描寫著稱，主題常圍繞愛情、心碎與自我發現。
+          他曾提到寫歌的初心是「安慰人心」，希望把內在故事轉化成能陪伴聽眾的旋律與文字。
         </p>
       </div>
     </section>
@@ -468,23 +447,23 @@
         <div class="song-media">
           <iframe
             class="embed"
-            src="https://www.youtube-nocookie.com/embed/KrsqPE9SMxo?rel=0&modestbranding=1&playsinline=1"
-            title="Love Story - Taylor Swift"
+            src="https://www.youtube-nocookie.com/embed/IC2DDUQmG5I?rel=0&modestbranding=1&playsinline=1"
+            title="Peder Elias - Twinkle Twinkle"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="origin"
             allowfullscreen
           ></iframe>
         </div>
         <div class="song-copy">
-          <h3 class="song-title">💗 Love Story</h3>
+          <h3 class="song-title">Twinkle Twinkle</h3>
           <div class="song-meta">
-            <span class="tag">Romantic Country-Pop</span>
-            <span class="tag">青春童話感</span>
-            <span class="tag">婚禮 MV 氛圍</span>
+            <span class="tag">童謠重演繹</span>
+            <span class="tag">懷舊 x 心碎</span>
+            <span class="tag">情感反差</span>
           </div>
           <p>
-            《Love Story》融合鄉村與流行語彙，以清新浪漫旋律重述羅密歐與茱麗葉，並改寫為幸福求婚結局。
-            在視覺應用上，這種風格常對應復古園林、婚禮紀實與夢幻敘事場景，營造高貴且純真的情緒。
+            透過重新演繹經典兒歌《小星星》，Peder Elias 用童謠的熟悉感，對照成人世界的心碎情緒。
+            這首歌將「天真旋律」與「成熟傷感」放在同一框架，讓痛感被更溫柔地表達，也更容易被聽眾接住。
           </p>
         </div>
       </article>
@@ -495,23 +474,23 @@
         <div class="song-media">
           <iframe
             class="embed"
-            src="https://www.youtube-nocookie.com/embed/liTfD88dbCo?rel=0&modestbranding=1&playsinline=1"
-            title="Shape of You - Ed Sheeran"
+            src="https://www.youtube.com/embed?listType=search&list=Peder%20Elias%20Loving%20You%20Girl"
+            title="Peder Elias - Loving You Girl"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="origin"
             allowfullscreen
           ></iframe>
         </div>
         <div class="song-copy">
-          <h3 class="song-title">🎶 Shape of You</h3>
+          <h3 class="song-title">Loving You Girl</h3>
           <div class="song-meta">
-            <span class="tag">Tropical House</span>
-            <span class="tag">Dancehall 節奏</span>
-            <span class="tag">Marimba 質感</span>
+            <span class="tag">浪漫抒情</span>
+            <span class="tag">愛慕表達</span>
+            <span class="tag">情感延續</span>
           </div>
           <p>
-            《Shape of You》以熱帶浩室為基底，加入 Dancehall 與微量 R&B，透過切分節奏和簡潔和聲循環，
-            打造俐落、彈跳且高度流行化的律動。此曲是現代舞曲與主流流行結合的典型範例。
+            這首歌以溫柔嗓音描寫愛慕與靠近對方的心情，延續他在《Bonfire》等作品裡對感情主題的探索。
+            從愛情、心碎到自我發現，Peder Elias 一直維持「真誠、可共鳴」的創作方向，讓歌曲同時浪漫也有安定感。
           </p>
         </div>
       </article>
@@ -522,23 +501,23 @@
         <div class="song-media">
           <iframe
             class="embed"
-            src="https://www.youtube-nocookie.com/embed/DwuJeGYlYyw?rel=0&modestbranding=1&playsinline=1"
-            title="Steal the Show - Kygo & Parson James"
+            src="https://www.youtube-nocookie.com/embed/YbqZsvWC2lU?rel=0&modestbranding=1&playsinline=1"
+            title="Peder Elias - Paper Plane"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="origin"
             allowfullscreen
           ></iframe>
         </div>
         <div class="song-copy">
-          <h3 class="song-title">🌙 Steal the Show</h3>
+          <h3 class="song-title">Paper Plane</h3>
           <div class="song-meta">
-            <span class="tag">Dreamy Indie Pop</span>
-            <span class="tag">溫暖電子節奏</span>
-            <span class="tag">浪漫冒險感</span>
+            <span class="tag">紙飛機隱喻</span>
+            <span class="tag">遠距思念</span>
+            <span class="tag">情感連結</span>
           </div>
           <p>
-            《Steal the Show》呈現溫暖、輕快且夢幻的獨立流行質地，輕柔電子節奏與氛圍感聲響互相堆疊，
-            帶出探索自我與向外冒險的主題，聽感放鬆但仍具感染力。
+            「紙飛機」象徵把思念與情感寄託出去，希望它能平安飛到心愛的人身邊。歌曲描寫在距離、
+            不安全感與渴望連結之間的拉扯，以簡單而純粹的意象傳遞慰藉感，是他情感敘事能力的代表作之一。
           </p>
         </div>
       </article>
@@ -546,23 +525,12 @@
 
     <section class="slide wrap" id="slide-5">
       <div class="panel reveal">
-        <h2>報告總結與心得</h2>
-        <div class="summary-grid">
-          <article class="panel summary-card">
-            <h3>報告總結</h3>
-            <p>
-              三首作品分別代表敘事型浪漫、節奏型舞曲與氛圍型獨立流行。透過同一視覺語言統一呈現後，
-              可清楚比較旋律走向、節奏設計與情緒傳遞方式，也讓聽眾更容易理解「風格差異」與「編曲策略」。
-            </p>
-          </article>
-          <article class="panel summary-card">
-            <h3>心得反思</h3>
-            <p>
-              我發現音樂報告若搭配投影片式節奏，觀眾的注意力會更集中。未來可再加入段落波形、BPM 或和聲示意圖，
-              讓內容從「聽感描述」進一步提升到「可視化分析」，使報告更專業也更具說服力。
-            </p>
-          </article>
-        </div>
+        <h2>心得</h2>
+        <p>
+          我最有感的是 Peder Elias 把情緒說得很真實，卻不會過度沉重。他用柔和編曲與貼近生活的詞句，
+          讓失落、喜歡與思念都變得可以被理解。這次整理他的作品後，我更能體會「流行音樂」不只是旋律好聽，
+          更重要的是它能在某個時刻，替聽眾說出心裡還沒說出的話。
+        </p>
       </div>
     </section>
   </main>
