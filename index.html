@@ -242,6 +242,54 @@
       line-height: 1.85;
     }
 
+    .bio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+    }
+
+    .bio-item {
+      border: 1px solid rgba(179, 164, 255, 0.35);
+      border-radius: 16px;
+      padding: 0.85rem 0.95rem;
+      background: linear-gradient(160deg, rgba(67, 58, 130, 0.35), rgba(24, 29, 73, 0.65));
+    }
+
+    .bio-item h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+      color: #efe6ff;
+    }
+
+    .bio-item p {
+      color: var(--text-soft);
+      line-height: 1.72;
+      font-size: 0.92rem;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 0.8rem;
+    }
+
+    .photo-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(194, 177, 255, 0.35);
+      background: rgba(10, 15, 35, 0.8);
+      box-shadow: 0 14px 30px rgba(5, 8, 20, 0.4);
+    }
+
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
     .song-card {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -484,6 +532,14 @@
         grid-template-columns: 1fr;
       }
 
+      .bio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .slide-nav {
         right: 0.6rem;
       }
@@ -505,6 +561,10 @@
 
       .btn {
         font-size: 0.86rem;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
       }
 
       .cinema-close {
@@ -540,7 +600,7 @@
         </p>
         <div class="hero-actions">
           <button type="button" class="btn btn-start" id="start-btn">開始簡報</button>
-          <a class="btn btn-secondary" href="#slide-5">跳到心得</a>
+          <a class="btn btn-secondary" href="#slide-7">跳到心得</a>
         </div>
         <p class="local-warning" id="local-warning">
           目前為本機檔案模式，YouTube 可能出現錯誤 153；部署到 GitHub Pages 後即可正常內嵌播放。
@@ -550,16 +610,60 @@
 
     <section class="slide wrap intro" id="slide-1">
       <div class="panel reveal">
-        <h2>生平介紹</h2>
+        <h2>推薦原因</h2>
         <p>
-          Peder Elias（1997 年 1 月 14 日生）來自挪威特隆赫姆，是流行創作歌手。
-          他的作品以細膩、溫柔且容易共鳴的情感描寫著稱，主題常圍繞愛情、心碎與自我發現。
-          他曾提到寫歌的初心是「安慰人心」，希望把內在故事轉化成能陪伴聽眾的旋律與文字。
+          來自挪威的他，嗓音清亮且溫暖，曲風輕快舒壓。聽他的歌就像在曬太陽，
+          非常適合讀書、通勤或放鬆時聆聽。旋律好記、情緒舒服，是很容易一聽就喜歡的歌手。
         </p>
       </div>
     </section>
 
-    <section class="slide wrap" id="slide-2">
+    <section class="slide wrap intro" id="slide-2">
+      <div class="panel reveal">
+        <h2>生平介紹</h2>
+        <div class="bio-grid">
+          <article class="bio-item">
+            <h3>出生</h3>
+            <p>1997 年，挪威奧斯陸。</p>
+          </article>
+          <article class="bio-item">
+            <h3>背景</h3>
+            <p>從小加入挪威頂尖男童合唱團，擁有深厚的古典音樂功底，後來轉向流行音樂創作。</p>
+          </article>
+          <article class="bio-item">
+            <h3>成名</h3>
+            <p>2018 年出道，憑藉清新的嗓音在網路走紅。先在台灣與韓國爆紅，才紅回歐洲。</p>
+          </article>
+          <article class="bio-item">
+            <h3>特色</h3>
+            <p>擅長創作溫暖、治癒的旋律，被譽為「挪威清新小王子」。</p>
+          </article>
+          <article class="bio-item" style="grid-column: 1 / -1;">
+            <h3>亮點</h3>
+            <p>多次來台灣參加 KKBOX 風雲榜，並與 SEVENTEEN (BSS)、車銀優等 K-Pop 偶像合作，是目前亞洲人氣最高的西洋歌手之一。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide wrap intro" id="slide-3">
+      <div class="panel reveal">
+        <h2>照片</h2>
+        <div class="photo-grid">
+          <figure class="photo-card">
+            <img src="https://ysolife.com/wp-content/uploads/2021/09/182918441_1102631203547682_8929842315848767674_n.jpg" alt="Peder Elias portrait" loading="lazy" />
+          </figure>
+          <figure class="photo-card">
+            <img src="https://lineimg.omusic.com.tw/img/album/1509120.jpg?v=20260202175024" alt="Peder Elias album cover" loading="lazy" />
+          </figure>
+          <figure class="photo-card">
+            <img src="https://i.scdn.co/image/ab6761610000e5eb7f476e93f2e9976c9fd65c1e" alt="Peder Elias artist image" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide wrap" id="slide-4">
       <article class="song-card reveal" data-video-id="IC2DDUQmG5I">
         <div class="song-media">
           <iframe
@@ -587,7 +691,7 @@
       </article>
     </section>
 
-    <section class="slide wrap" id="slide-3">
+    <section class="slide wrap" id="slide-5">
       <article class="song-card reveal" data-video-id="R5eejP-u6dI">
         <div class="song-media">
           <iframe
@@ -615,7 +719,7 @@
       </article>
     </section>
 
-    <section class="slide wrap" id="slide-4">
+    <section class="slide wrap" id="slide-6">
       <article class="song-card reveal" data-video-id="YbqZsvWC2lU">
         <div class="song-media">
           <iframe
@@ -643,7 +747,7 @@
       </article>
     </section>
 
-    <section class="slide wrap" id="slide-5">
+    <section class="slide wrap" id="slide-7">
       <div class="panel reveal">
         <h2>心得</h2>
         <p>
@@ -662,6 +766,8 @@
     <button class="dot" data-target="slide-3" aria-label="第 4 張"></button>
     <button class="dot" data-target="slide-4" aria-label="第 5 張"></button>
     <button class="dot" data-target="slide-5" aria-label="第 6 張"></button>
+    <button class="dot" data-target="slide-6" aria-label="第 7 張"></button>
+    <button class="dot" data-target="slide-7" aria-label="第 8 張"></button>
   </aside>
 
   <div class="cinema-overlay" id="cinema-overlay" aria-hidden="true">
@@ -672,6 +778,7 @@
       <div id="cinema-player"></div>
     </div>
   </div>
+
   <script>
     const deck = document.getElementById('deck');
     const slides = Array.from(document.querySelectorAll('.slide'));
@@ -685,9 +792,9 @@
     const theaterHost = document.getElementById('cinema-player');
 
     const autoCinemaMap = {
-      'slide-2': 'IC2DDUQmG5I',
-      'slide-3': 'R5eejP-u6dI',
-      'slide-4': 'YbqZsvWC2lU'
+      'slide-4': 'IC2DDUQmG5I',
+      'slide-5': 'R5eejP-u6dI',
+      'slide-6': 'YbqZsvWC2lU'
     };
     const autoTriggeredSlides = new Set();
 
@@ -908,4 +1015,3 @@
   </script>
 </body>
 </html>
-
